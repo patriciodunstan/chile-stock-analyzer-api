@@ -1,0 +1,2823 @@
+{
+  "generated_at": "2026-03-23T19:06:24.731390",
+  "sources": {
+    "yahoo_finance": {
+      "status": "tested",
+      "tickers": {
+        "SQM-B": {
+          "status": "completo",
+          "sector": "Minería",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 68400.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 19537627971584
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 18289224843264
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 36.593
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 48.538177
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 3432.8733
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 4269.3774
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 12381.351
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 3996.575
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.09669
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.05233
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.12852
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.28328
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.29557
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 4576224256
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 588137984
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 1477159040
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 1869.21
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 0.523
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.233
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 4764290048
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 2721751040
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 59.155
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 3.268
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 19.925
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 429625760
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 1314366976
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 1.46
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.0
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 142818904
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 1.041
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "55 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "55 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "82 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "79 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "46 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "41 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "CAP": {
+          "status": "completo",
+          "sector": "Minería/Acero",
+          "fields_available": 34,
+          "fields_total": 38,
+          "coverage_pct": 89.5,
+          "dcf_fields": "10/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "7/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 6275.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 937786933248
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 959283593216
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 5.1552324
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 540.8084
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 485.89166
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 2112.769
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 497.03
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": -0.0309
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.00621
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": -0.043860003
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.14206
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.11775
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 1930033024
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": -81991000
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 454040992
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": -515.2
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.352
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 1843494016
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 311441984
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 61.089
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 1.167
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 11.603
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": -52829876
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 373598016
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.0
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 149448112
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 1.312
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "53 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "56 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "89 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "90 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "44 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "43 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            }
+          },
+          "missing": [
+            "trailingPE",
+            "pegRatio",
+            "earningsGrowth",
+            "dividendYield"
+          ]
+        },
+        "BCI": {
+          "status": "completo",
+          "sector": "Banca",
+          "fields_available": 32,
+          "fields_total": 38,
+          "coverage_pct": 84.2,
+          "dcf_fields": "9/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "7/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 59006.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 12898962243584
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 25036503121920
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 13.750465
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 14.872713
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 1.7327656
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 4.69588
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 9.115
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.13793999
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.01208
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.36259997
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.42515
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.0
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 2746868039680
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 996005969920
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 4291.2
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 0.342
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.073
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 23676439232512
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 11670882615296
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 34053.08
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 1276377038848
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 1.86
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.2588
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 218604259
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.349
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "41 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "42 filas x 5 periodos",
+              "periods": [
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31",
+                "2024-09-30"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "54 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "53 filas x 5 periodos",
+              "periods": [
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31",
+                "2024-09-30"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "52 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "52 filas x 5 periodos",
+              "periods": [
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31",
+                "2024-09-30"
+              ]
+            }
+          },
+          "missing": [
+            "enterpriseToEbitda",
+            "pegRatio",
+            "ebitda",
+            "debtToEquity",
+            "currentRatio",
+            "freeCashflow"
+          ]
+        },
+        "BSANTANDER": {
+          "status": "completo",
+          "sector": "Banca",
+          "fields_available": 32,
+          "fields_total": 38,
+          "coverage_pct": 84.2,
+          "dcf_fields": "9/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "7/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 73.35
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 13822523867136
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 26371141140480
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 13.53321
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 18.807692
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 2.461079
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 6.0457706
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 11.534
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.18712
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.0152
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.44685
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.54799
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.0
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 2286313013248
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 1021650010112
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 5.42
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": -0.177
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": -0.105
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 27429435342848
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 15000760483840
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 29.804
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 884389969920
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 4.37
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.5877
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 188446126794
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.45
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "48 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "48 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "62 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "62 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "50 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "47 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2024-12-31",
+                "2024-09-30"
+              ]
+            }
+          },
+          "missing": [
+            "enterpriseToEbitda",
+            "pegRatio",
+            "ebitda",
+            "debtToEquity",
+            "currentRatio",
+            "freeCashflow"
+          ]
+        },
+        "FALABELLA": {
+          "status": "completo",
+          "sector": "Retail",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 5742.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 14405785878528
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 21107818102784
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 9570.0
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 32.979153
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 1.8069804
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 1.0798329
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 11.751
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 1.582
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.21324
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.03674
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.101
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.13071
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.32801
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 13340754575360
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 1347476783104
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 1796250009600
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 0.6
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 1.862
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.091
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 5465438683136
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 1595706572800
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 53.742
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 3.297
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 3177.677
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 583311491072
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 1284525654016
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 1.64
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 141.9715
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 2508844629
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.675
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "53 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "52 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "91 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "88 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "52 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "49 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "COPEC": {
+          "status": "completo",
+          "sector": "Energía/Forestal",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 6094.8
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 7922348720128
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 8200985247744
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 9.941117
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 9.975613
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 553.3182
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 267.3042
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 3386.216
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 276.706
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.06689
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.03021
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.029590001
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.062230002
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.14862001
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 29637951488
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 876851008
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 2421872896
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 613.09
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 0.264
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.108
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 12550597632
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 2545740032
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 84.123
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 1.741
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 11.015
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": -107423504
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 2004225024
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 3.6
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.35950002
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 1299853848
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.369
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "56 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "56 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "86 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "85 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "52 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "52 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "CENCOSUD": {
+          "status": "completo",
+          "sector": "Retail",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 2301.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 6336976781312
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 11962771570688
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 20.355627
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 17.637589
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 1.370488
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 0.38187176
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 10.386
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 0.721
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.075219996
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.035889998
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.01898
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.0652
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.29374
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 16594515263488
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 314917060608
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 1151784189952
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 113.04
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 7.365
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": -0.081
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 5496924798976
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 683821957120
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 104.225
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 0.918
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 1678.964
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 271385575424
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 1089031372800
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 0.62
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.1293
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 2754009940
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.231
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "47 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "47 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "82 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "84 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "43 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "42 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "ENELAM": {
+          "status": "completo",
+          "sector": "Energía",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 78.4
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 8074313596928
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 8244722401280
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 9.537713
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 7.538462
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 502.5641
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 573.4713
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 2429.562
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 585.574
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.07693
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.04474
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.06819
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.18549
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.39098
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 14079716352
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 960070016
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 3393500928
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 8.22
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 1.608
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.147
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 7188432896
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 2054978944
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 38.696
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 0.865
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 0.156
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": -1095807360
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 2713895936
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 2.03
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.80120003
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 102988693949
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.336
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "63 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "54 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "97 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "83 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "52 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "45 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "CMPC": {
+          "status": "completo",
+          "sector": "Forestal",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 1170.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 2925000130560
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 3053049348096
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 15.996718
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 5.6746535
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 289.5323
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 391.29935
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 2956.992
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 408.429
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.02249
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.0025099998
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.026989998
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": -0.011460001
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.19127001
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 7475096064
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 201232992
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 1032484992
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 73.14
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": 2.634
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": -0.015
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 6363146752
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 814366016
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 62.989
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 2.091
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 4.041
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 524118016
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 1065028992
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 5.8
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.2174
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 2500000000
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.327
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "48 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "47 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "83 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "83 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "37 filas x 4 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "37 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "CCU": {
+          "status": "completo",
+          "sector": "Consumo",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 5290.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 1954670182400
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 2809482182656
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 16.698233
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 12.647938
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 1.3279645
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 0.6717945
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 8.695
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 0.966
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.08349
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.03046
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.040260002
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.10849
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.4439
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 2909625384960
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 117152210944
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 323107258368
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 316.8
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": -0.257
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": -0.118
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 1263190409216
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 520393064448
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 78.145
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 1.899
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 3983.54
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 47418724352
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 239050522624
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 2.87
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.3065
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 369502872
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.182
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "51 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "50 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "100 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "102 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "44 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "44 filas x 7 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "CHILE": {
+          "status": "completo",
+          "sector": "Banca",
+          "fields_available": 32,
+          "fields_total": 38,
+          "coverage_pct": 84.2,
+          "dcf_fields": "9/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "7/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 163.7
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 16536496504832
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 26334373871616
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 13.872881
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 15.428841
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 2.8513699
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 6.254062
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 9.96
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.20876
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.022449998
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.45091
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.53839
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.0
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 2644120961024
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 1192261976064
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 11.8
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": -0.109
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": -0.062
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 16211812286464
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 7181665042432
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 57.411
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 1248363937792
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 5.75
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.83489996
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 101017081114
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.088
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "46 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "48 filas x 6 periodos",
+              "periods": [
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "66 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "62 filas x 6 periodos",
+              "periods": [
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "55 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "52 filas x 6 periodos",
+              "periods": [
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "enterpriseToEbitda",
+            "pegRatio",
+            "ebitda",
+            "debtToEquity",
+            "currentRatio",
+            "freeCashflow"
+          ]
+        },
+        "ITAUCORP": {
+          "status": "no_data",
+          "fields_available": 0,
+          "fields_total": 38,
+          "available": {},
+          "missing": [
+            "currentPrice",
+            "marketCap",
+            "enterpriseValue",
+            "trailingPE",
+            "forwardPE",
+            "priceToBook",
+            "priceToSalesTrailing12Months",
+            "enterpriseToEbitda",
+            "enterpriseToRevenue",
+            "pegRatio",
+            "returnOnEquity",
+            "returnOnAssets",
+            "profitMargins",
+            "operatingMargins",
+            "grossMargins",
+            "totalRevenue",
+            "netIncomeToCommon",
+            "ebitda",
+            "trailingEps",
+            "earningsGrowth",
+            "revenueGrowth",
+            "totalDebt",
+            "totalCash",
+            "debtToEquity",
+            "currentRatio",
+            "bookValue",
+            "freeCashflow",
+            "operatingCashflow",
+            "dividendYield",
+            "payoutRatio",
+            "sharesOutstanding",
+            "beta",
+            "income_stmt",
+            "quarterly_income_stmt",
+            "balance_sheet",
+            "quarterly_balance_sheet",
+            "cashflow",
+            "quarterly_cashflow"
+          ]
+        },
+        "VAPORES": {
+          "status": "completo",
+          "sector": "Naviera",
+          "fields_available": 33,
+          "fields_total": 38,
+          "coverage_pct": 86.8,
+          "dcf_fields": "9/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 52.0
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 2668633522176
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 2698900406272
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 7.9510703
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 13.471503
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 374.10074
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": -176122.45
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.051680002
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": -0.0013
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.0
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.0
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.0
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 369439008
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": -15324000
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 6.54
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": -0.857
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 1083000
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 526071008
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 0.015
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 11.536
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 0.139
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 560884224
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 319326016
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 14.25
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 1.1099
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 51319876188
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.488
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "49 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "43 filas x 6 periodos",
+              "periods": [
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "61 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "52 filas x 6 periodos",
+              "periods": [
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "37 filas x 4 periodos",
+              "periods": [
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31",
+                "2021-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "27 filas x 6 periodos",
+              "periods": [
+                "2025-09-30",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "priceToSalesTrailing12Months",
+            "enterpriseToRevenue",
+            "pegRatio",
+            "totalRevenue",
+            "revenueGrowth"
+          ]
+        },
+        "COLBUN": {
+          "status": "completo",
+          "sector": "Energía",
+          "fields_available": 37,
+          "fields_total": 38,
+          "coverage_pct": 97.4,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 129.2
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 2265672843264
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 2230523002880
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": 13.30587
+            },
+            "forwardPE": {
+              "label": "P/E forward",
+              "value": 8.539326
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 698.37836
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 1419.9797
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 4213.837
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 1397.95
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.057729997
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.02487
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.11733
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.14249
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.49251997
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 1595566976
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 187207008
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 529332992
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 9.71
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": -0.412
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": 0.021
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 2558194944
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 883260992
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 78.796
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 3.757
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 0.185
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": -42372752
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 476944000
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 4.32
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.5581
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 17536167720
+            },
+            "beta": {
+              "label": "Beta",
+              "value": -0.121
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "52 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "52 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "83 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "79 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "36 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "35 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "pegRatio"
+          ]
+        },
+        "PROVIDA": {
+          "status": "completo",
+          "sector": "AFP",
+          "fields_available": 36,
+          "fields_total": 38,
+          "coverage_pct": 94.7,
+          "dcf_fields": "11/11",
+          "dcf_verdict": "viable",
+          "valuation_fields": "9/9",
+          "available": {
+            "currentPrice": {
+              "label": "Precio actual",
+              "value": 5091.2
+            },
+            "marketCap": {
+              "label": "Market Cap",
+              "value": 1669993332736
+            },
+            "enterpriseValue": {
+              "label": "Enterprise Value",
+              "value": 1489694228480
+            },
+            "trailingPE": {
+              "label": "P/E trailing",
+              "value": "Infinity"
+            },
+            "priceToBook": {
+              "label": "P/B ratio",
+              "value": 1.3811382
+            },
+            "priceToSalesTrailing12Months": {
+              "label": "P/S ratio",
+              "value": 5.3374486
+            },
+            "enterpriseToEbitda": {
+              "label": "EV/EBITDA",
+              "value": 8.735
+            },
+            "enterpriseToRevenue": {
+              "label": "EV/Revenue",
+              "value": 4.761
+            },
+            "returnOnEquity": {
+              "label": "ROE",
+              "value": 0.11108
+            },
+            "returnOnAssets": {
+              "label": "ROA",
+              "value": 0.06518
+            },
+            "profitMargins": {
+              "label": "Margen neto",
+              "value": 0.42863
+            },
+            "operatingMargins": {
+              "label": "Margen operacional",
+              "value": 0.60928
+            },
+            "grossMargins": {
+              "label": "Margen bruto",
+              "value": 0.78274
+            },
+            "totalRevenue": {
+              "label": "Revenue",
+              "value": 312882331648
+            },
+            "netIncomeToCommon": {
+              "label": "Utilidad neta",
+              "value": 134110740480
+            },
+            "ebitda": {
+              "label": "EBITDA",
+              "value": 170545414144
+            },
+            "trailingEps": {
+              "label": "EPS trailing",
+              "value": 0.0
+            },
+            "earningsGrowth": {
+              "label": "Earnings growth",
+              "value": -0.108
+            },
+            "revenueGrowth": {
+              "label": "Revenue growth",
+              "value": -0.018
+            },
+            "totalDebt": {
+              "label": "Deuda total",
+              "value": 6985606144
+            },
+            "totalCash": {
+              "label": "Cash total",
+              "value": 227237117952
+            },
+            "debtToEquity": {
+              "label": "Debt/Equity",
+              "value": 0.578
+            },
+            "currentRatio": {
+              "label": "Current Ratio",
+              "value": 1.044
+            },
+            "bookValue": {
+              "label": "Book Value",
+              "value": 3686.235
+            },
+            "freeCashflow": {
+              "label": "Free Cash Flow",
+              "value": 160003555328
+            },
+            "operatingCashflow": {
+              "label": "Operating Cash Flow",
+              "value": 163323740160
+            },
+            "dividendYield": {
+              "label": "Dividend Yield",
+              "value": 7.12
+            },
+            "payoutRatio": {
+              "label": "Payout Ratio",
+              "value": 0.9988
+            },
+            "sharesOutstanding": {
+              "label": "Shares Outstanding",
+              "value": 328015660
+            },
+            "beta": {
+              "label": "Beta",
+              "value": 0.048
+            },
+            "income_stmt": {
+              "label": "Income Statement (anual)",
+              "value": "56 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_income_stmt": {
+              "label": "Income Statement (trimestral)",
+              "value": "56 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "balance_sheet": {
+              "label": "Balance Sheet (anual)",
+              "value": "84 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_balance_sheet": {
+              "label": "Balance Sheet (trimestral)",
+              "value": "84 filas x 6 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            },
+            "cashflow": {
+              "label": "Cash Flow (anual)",
+              "value": "53 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2024-12-31",
+                "2023-12-31",
+                "2022-12-31"
+              ]
+            },
+            "quarterly_cashflow": {
+              "label": "Cash Flow (trimestral)",
+              "value": "52 filas x 5 periodos",
+              "periods": [
+                "2025-12-31",
+                "2025-06-30",
+                "2025-03-31",
+                "2024-12-31"
+              ]
+            }
+          },
+          "missing": [
+            "forwardPE",
+            "pegRatio"
+          ]
+        }
+      }
+    },
+    "cmf_api": {
+      "status": "tested",
+      "endpoints": {
+        "instituciones": {
+          "status": "error",
+          "status_code": 302
+        },
+        "balance": {
+          "status": "error",
+          "status_code": 302
+        }
+      }
+    },
+    "eodhd": {
+      "status": "tested",
+      "endpoints": {
+        "eod_price": {
+          "status": "error",
+          "status_code": 403
+        },
+        "fundamentals": {
+          "status": "error",
+          "status_code": 403
+        }
+      }
+    },
+    "banco_central": {
+      "status": "tested",
+      "series": {
+        "USD/CLP": {
+          "status": "ok",
+          "has_data": false
+        },
+        "UF": {
+          "status": "ok",
+          "has_data": false
+        },
+        "TPM": {
+          "status": "ok",
+          "has_data": false
+        }
+      }
+    }
+  },
+  "conclusions": {
+    "yahoo": {
+      "complete_tickers": 14,
+      "dcf_viable_tickers": 14,
+      "recommendation": "Yahoo Finance es la principal fuente gratuita para fundamentals. Complementar con CMF XBRL para EEFF detallados."
+    }
+  }
+}
