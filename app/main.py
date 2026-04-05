@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
+from app.core.logging import setup_logging
 from app.domain.exceptions import DomainException
 from app.infrastructure.persistence.database import init_db, close_db
 from app.presentation.api.v1.router import api_router
@@ -15,6 +16,7 @@ from app.presentation.middleware.error_handler import (
 )
 
 settings = get_settings()
+setup_logging()
 
 
 @asynccontextmanager
