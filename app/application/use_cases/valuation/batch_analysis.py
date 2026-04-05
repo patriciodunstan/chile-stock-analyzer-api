@@ -39,6 +39,7 @@ class RankedCompany:
     market_price: float | None
     intrinsic_value: float | None
     margin_of_safety: float | None
+    buy_target_price: float | None
     pe_ratio: float | None
     ev_ebitda: float | None
     roe: float | None
@@ -56,6 +57,7 @@ class RankedCompany:
             "market_price": self.market_price,
             "intrinsic_value": self.intrinsic_value,
             "margin_of_safety": self.margin_of_safety,
+            "buy_target_price": self.buy_target_price,
             "pe_ratio": self.pe_ratio,
             "ev_ebitda": self.ev_ebitda,
             "roe": self.roe,
@@ -196,6 +198,7 @@ class BatchAnalysisUseCase:
                 market_price=result.market_price,
                 intrinsic_value=result.intrinsic_value,
                 margin_of_safety=result.margin_of_safety,
+                buy_target_price=result.buy_target_price,
                 pe_ratio=_round(metrics.get("pe_ratio")),
                 ev_ebitda=_round(metrics.get("ev_ebitda")),
                 roe=_round(metrics.get("roe"), 4),

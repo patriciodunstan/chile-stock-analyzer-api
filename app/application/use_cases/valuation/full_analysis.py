@@ -41,6 +41,7 @@ class AnalysisResult:
     market_price: float | None
     intrinsic_value: float | None
     margin_of_safety: float | None
+    buy_target_price: float | None  # precio al que señal pasaría a BUY (margen seguridad DCF ≥25%)
 
     # Sub-resultados
     metrics: dict[str, Any] | None
@@ -59,6 +60,7 @@ class AnalysisResult:
             "market_price": self.market_price,
             "intrinsic_value": self.intrinsic_value,
             "margin_of_safety": self.margin_of_safety,
+            "buy_target_price": self.buy_target_price,
             "metrics": self.metrics,
             "dcf": self.dcf,
             "scoring": self.scoring,
@@ -206,19 +208,17 @@ class FullAnalysisUseCase:
             except Exception as e:
                 warnings.append(f"Error en scoring: {e}")
 
-        # 5b. Precio objetivo para cambio de señal (BUY si HOLD/SELL)
-        if (
-            scoring_result
-            and dcf_result
-            and scoring_result.signal in ("HOLD", "SELL")
-            and dcf_result.intrinsic_value_per_share > 0
-        ):
-            buy_threshold = dcf_result.intrinsic_value_per_share * (1 - 0.25)
-            buy_price_market = buy_threshold * fx_rate
-            reasons.append(
-                f"Precio objetivo BUY: {buy_price_market:,.0f} CLP "
-                f"(margen seguridad DCF ≥25% a ese precio)"
+        # 5b. Precio objetivo para cambio de señal (precio al que DCF daría margen ≥25%)
+        buy_target_price: float | None = None
+        if dcf_result and dcf_result.intrinsic_value_per_share > 0:
+            buy_target_price = round(
+                dcf_result.intrinsic_value_per_share * (1 - 0.25) * fx_rate, 2
             )
+            if scoring_result and scoring_result.signal in ("HOLD", "SELL"):
+                reasons.append(
+                    f"Precio objetivo BUY: {buy_target_price:,.0f} CLP "
+                    f"(margen seguridad DCF ≥25% a ese precio)"
+                )
 
         # 6. Construir resultado
         signal = "N/A"
@@ -231,11 +231,9 @@ class FullAnalysisUseCase:
             score = scoring_result.score
 
         if dcf_result:
-            # Convertir intrinsic value de vuelta a moneda de mercado (CLP)
             intrinsic = dcf_result.intrinsic_value_per_share * fx_rate
             mos = dcf_result.margin_of_safety
 
-        # Statement summary
         stmt_dict = {
             "period": statement.period,
             "revenue": statement.revenue,
@@ -254,6 +252,7 @@ class FullAnalysisUseCase:
             market_price=market_price,
             intrinsic_value=round(intrinsic, 2) if intrinsic else None,
             margin_of_safety=round(mos, 2) if mos else None,
+            buy_target_price=buy_target_price,
             metrics=self._metrics_to_dict(metrics_result) if metrics_result else None,
             dcf=dcf_result.to_dict() if dcf_result else None,
             scoring=scoring_result.to_dict() if scoring_result else None,

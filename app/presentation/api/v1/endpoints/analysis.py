@@ -47,6 +47,7 @@ class AnalysisResponse(BaseModel):
     market_price: float | None
     intrinsic_value: float | None
     margin_of_safety: float | None
+    buy_target_price: float | None
     metrics: dict[str, Any] | None
     dcf: dict[str, Any] | None
     scoring: dict[str, Any] | None
@@ -73,6 +74,7 @@ class RankedCompanyResponse(BaseModel):
     market_price: float | None
     intrinsic_value: float | None
     margin_of_safety: float | None
+    buy_target_price: float | None
     pe_ratio: float | None
     ev_ebitda: float | None
     roe: float | None
