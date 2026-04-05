@@ -7,6 +7,7 @@ Endpoint target: GET /api/v1/analysis/batch
 """
 from __future__ import annotations
 
+import asyncio
 import logging
 from dataclasses import dataclass
 
@@ -120,17 +121,23 @@ class BatchAnalysisUseCase:
                 ranking=[], errors=[],
             )
 
-        # Ejecutar análisis secuencialmente (SQLite no soporta bien concurrencia)
-        # En producción con PostgreSQL, se puede usar asyncio.gather con semáforo
-        results: list[tuple[Company, AnalysisResult | None, str | None]] = []
+        # Ejecutar análisis en paralelo con semáforo para limitar concurrencia
+        sem = asyncio.Semaphore(5)
 
-        for company in companies:
-            try:
-                result = await self.full_analysis.execute(company.ticker)
-                results.append((company, result, None))
-            except Exception as e:
-                logger.error(f"Error analizando {company.ticker}: {e}")
-                results.append((company, None, str(e)))
+        async def analyze_one(
+            company: Company,
+        ) -> tuple[Company, AnalysisResult | None, str | None]:
+            async with sem:
+                try:
+                    result = await self.full_analysis.execute(company.ticker)
+                    return (company, result, None)
+                except Exception as e:
+                    logger.error(f"Error analizando {company.ticker}: {e}")
+                    return (company, None, str(e))
+
+        results: list[tuple[Company, AnalysisResult | None, str | None]] = list(
+            await asyncio.gather(*[analyze_one(c) for c in companies])
+        )
 
         # Construir ranking
         ranked: list[RankedCompany] = []
