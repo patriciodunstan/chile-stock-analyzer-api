@@ -40,6 +40,8 @@ class Base(DeclarativeBase):
 
 async def init_db():
     """Crea todas las tablas (solo para dev/testing)."""
+    # Importar modelos para registrarlos en Base.metadata antes de create_all
+    from app.infrastructure.persistence.models import financial_model, stock_model  # noqa: F401
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
