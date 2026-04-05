@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     app_name: str = "Chile Stock Analyzer"
     debug: bool = False
     api_v1_prefix: str = "/api/v1"
+    allowed_origins: list[str] = [
+        "https://chile-stock-analyzer-web-production.up.railway.app",
+        "http://localhost:3000",
+        "http://localhost:5173",
+    ]
 
     # Database
     database_url: str = "sqlite+aiosqlite:////tmp/chile_stocks.db"
