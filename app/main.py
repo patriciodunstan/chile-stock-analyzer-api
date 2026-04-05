@@ -1,8 +1,10 @@
 """Entry point — App Factory de FastAPI."""
 
+import logging
+import time
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
@@ -18,11 +20,19 @@ from app.presentation.middleware.error_handler import (
 settings = get_settings()
 setup_logging()
 
+logger = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup y shutdown del application lifecycle."""
+    db_url = settings.database_url
+    db_type = "postgresql" if "postgresql" in db_url else "sqlite"
+    # Ocultar credenciales en el log
+    safe_url = db_url.split("@")[-1] if "@" in db_url else db_url
+    logger.info(f"[DB] Conectando a {db_type} | {safe_url}")
     await init_db()
+    logger.info("[DB] Tablas inicializadas correctamente")
     yield
     await close_db()
 
@@ -36,6 +46,16 @@ def create_app() -> FastAPI:
         docs_url=f"{settings.api_v1_prefix}/docs",
         lifespan=lifespan,
     )
+
+    # Request logging middleware
+    @app.middleware("http")
+    async def log_requests(request: Request, call_next):
+        start = time.monotonic()
+        logger.info(f"→ {request.method} {request.url.path}")
+        response = await call_next(request)
+        ms = (time.monotonic() - start) * 1000
+        logger.info(f"← {request.method} {request.url.path} {response.status_code} ({ms:.0f}ms)")
+        return response
 
     # CORS
     app.add_middleware(
