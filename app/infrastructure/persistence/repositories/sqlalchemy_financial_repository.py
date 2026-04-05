@@ -5,7 +5,6 @@ import logging
 
 from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.dialects.sqlite import insert as sqlite_upsert
 
 from app.domain.entities.financial import FinancialStatement, FundamentalMetrics
 from app.domain.repositories.financial_repository import FinancialRepository
@@ -15,6 +14,21 @@ from app.infrastructure.persistence.models.financial_model import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+def _dialect_insert(model: type, values: dict, conflict_cols: list[str]):
+    """Construye un INSERT ... ON CONFLICT DO UPDATE compatible con PostgreSQL y SQLite."""
+    from app.config import get_settings
+    db_url = get_settings().database_url
+    if "postgresql" in db_url:
+        from sqlalchemy.dialects.postgresql import insert
+    else:
+        from sqlalchemy.dialects.sqlite import insert
+    stmt = insert(model).values(**values)
+    return stmt.on_conflict_do_update(
+        index_elements=conflict_cols,
+        set_={k: v for k, v in values.items() if k not in conflict_cols},
+    )
 
 
 class SQLAlchemyFinancialRepository(FinancialRepository):
@@ -51,11 +65,7 @@ class SQLAlchemyFinancialRepository(FinancialRepository):
             "shares_outstanding": statement.shares_outstanding,
         }
 
-        stmt = sqlite_upsert(FinancialStatementModel).values(**values)
-        stmt = stmt.on_conflict_do_update(
-            index_elements=["ticker", "period"],
-            set_={k: v for k, v in values.items() if k not in ("ticker", "period")},
-        )
+        stmt = _dialect_insert(FinancialStatementModel, values, ["ticker", "period"])
         await self._session.execute(stmt)
         logger.info(f"Saved financial statement: {statement.ticker} {statement.period}")
 
@@ -114,11 +124,7 @@ class SQLAlchemyFinancialRepository(FinancialRepository):
             "opportunity_score": metrics.opportunity_score,
         }
 
-        stmt = sqlite_upsert(FundamentalMetricsModel).values(**values)
-        stmt = stmt.on_conflict_do_update(
-            index_elements=["ticker", "period"],
-            set_={k: v for k, v in values.items() if k not in ("ticker", "period")},
-        )
+        stmt = _dialect_insert(FundamentalMetricsModel, values, ["ticker", "period"])
         await self._session.execute(stmt)
         logger.info(f"Saved metrics: {metrics.ticker} {metrics.period}")
 
