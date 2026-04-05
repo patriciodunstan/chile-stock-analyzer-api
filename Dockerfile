@@ -11,7 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app/ app/
 COPY scripts/ scripts/
-COPY telegram_bot/ telegram_bot/
 COPY start.sh .
 RUN chmod +x start.sh
 
