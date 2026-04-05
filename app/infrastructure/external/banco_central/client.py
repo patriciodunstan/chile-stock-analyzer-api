@@ -101,6 +101,23 @@ class BancoCentralClient(MacroDataProvider):
             observation_date=date.today(),
         )
 
+    async def get_usd_clp(self) -> float:
+        """Tipo de cambio USD/CLP del día desde el Banco Central.
+
+        Raises:
+            ValueError: Si las credenciales no están configuradas.
+            ExternalAPIError: Si la API no responde o retorna error.
+        """
+        if not self._user or not self._password:
+            raise ValueError("Credenciales del Banco Central no configuradas")
+        value = await self._get_latest_value(SERIES["usd_clp"])
+        if value <= 0:
+            raise ExternalAPIError(
+                message="Banco Central retornó TC inválido",
+                details={"value": value},
+            )
+        return value
+
     async def get_uf(self) -> float:
         return await self._get_latest_value(SERIES["uf"])
 

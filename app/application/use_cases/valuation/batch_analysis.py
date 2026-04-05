@@ -148,6 +148,7 @@ class BatchAnalysisUseCase:
                             metrics_calculator=fa.metrics_calculator,
                             dcf_service=fa.dcf_service,
                             scoring_service=fa.scoring_service,
+                            macro_provider=fa.macro_provider,
                         )
                         result = await asyncio.wait_for(
                             use_case.execute(company.ticker),

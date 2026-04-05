@@ -31,6 +31,11 @@ class MacroDataProvider(ABC):
         pass
 
     @abstractmethod
+    async def get_usd_clp(self) -> float:
+        """Tipo de cambio USD/CLP del día."""
+        pass
+
+    @abstractmethod
     async def get_risk_free_rate(self) -> float:
         """Tasa libre de riesgo (BCP-10 o similar)."""
         pass

@@ -26,12 +26,9 @@ from app.domain.services.opportunity_scoring import (
     ScoringResult,
 )
 from app.application.interfaces.market_data_provider import MarketDataProvider
+from app.application.interfaces.macro_data_provider import MacroDataProvider
 
 logger = logging.getLogger(__name__)
-
-# Tipo de cambio USD/CLP (se debería obtener de API, hardcoded por ahora)
-# TODO: obtener de Banco Central o Yahoo Finance dinámicamente
-_USD_CLP_RATE = 920.0  # Aproximado marzo 2026
 
 
 @dataclass
@@ -81,6 +78,7 @@ class FullAnalysisUseCase:
     metrics_calculator: MetricsCalculatorService
     dcf_service: DCFValuationService
     scoring_service: OpportunityScoringService
+    macro_provider: MacroDataProvider | None = None
 
     async def execute(self, ticker: str) -> AnalysisResult:
         """Ejecuta análisis completo para un ticker.
@@ -139,7 +137,7 @@ class FullAnalysisUseCase:
         market_cap_normalized = getattr(price_data, "market_cap", 0) if price_data else 0
 
         if eeff_currency == "USD" and price_currency == "CLP" and market_price:
-            fx_rate = _USD_CLP_RATE
+            fx_rate = await self._get_usd_clp_rate(warnings)
             market_price_normalized = market_price / fx_rate
             market_cap_normalized = market_cap_normalized / fx_rate
             reasons.append(
@@ -199,10 +197,28 @@ class FullAnalysisUseCase:
                 scoring_result = self.scoring_service.score(
                     metrics=metrics_result,
                     dcf=dcf_result,
+                    sector=company.sector,
                 )
                 reasons.extend(scoring_result.reasons)
+                # Alertas críticas también van a warnings
+                if scoring_result.critical_alerts:
+                    warnings.extend(scoring_result.critical_alerts)
             except Exception as e:
                 warnings.append(f"Error en scoring: {e}")
+
+        # 5b. Precio objetivo para cambio de señal (BUY si HOLD/SELL)
+        if (
+            scoring_result
+            and dcf_result
+            and scoring_result.signal in ("HOLD", "SELL")
+            and dcf_result.intrinsic_value_per_share > 0
+        ):
+            buy_threshold = dcf_result.intrinsic_value_per_share * (1 - 0.25)
+            buy_price_market = buy_threshold * fx_rate
+            reasons.append(
+                f"Precio objetivo BUY: {buy_price_market:,.0f} CLP "
+                f"(margen seguridad DCF ≥25% a ese precio)"
+            )
 
         # 6. Construir resultado
         signal = "N/A"
@@ -245,6 +261,56 @@ class FullAnalysisUseCase:
             reasons=reasons,
             warnings=warnings,
         )
+
+    async def _get_usd_clp_rate(self, warnings: list[str]) -> float:
+        """Obtiene TC USD/CLP con cascada:
+        1. Banco Central API (si tiene credenciales configuradas)
+        2. Yahoo Finance USDCLP=X (sin cuenta, siempre disponible vía yfinance)
+        3. USD_CLP_RATE env var (configurable en Railway)
+        4. 950.0 como último fallback
+        """
+        from app.config import get_settings
+
+        # 1. Banco Central
+        if self.macro_provider is not None:
+            try:
+                rate = await self.macro_provider.get_usd_clp()
+                logger.info("TC USD/CLP desde Banco Central: %.0f", rate)
+                return rate
+            except Exception as e:
+                logger.warning("TC Banco Central no disponible: %s", e)
+
+        # 2. Yahoo Finance USDCLP=X (sin cuenta, usa yfinance ya instalado)
+        try:
+            rate = await self._get_usd_clp_from_yahoo()
+            logger.info("TC USD/CLP desde Yahoo Finance: %.0f", rate)
+            return rate
+        except Exception as e:
+            logger.warning("TC Yahoo Finance no disponible: %s", e)
+
+        # 3. Env var / default
+        configured = get_settings().usd_clp_rate
+        source = "configurado manualmente" if configured != 950.0 else "valor por defecto — configura USD_CLP_RATE en Railway"
+        warnings.append(f"TC USD/CLP {source}: {configured:,.0f}")
+        return configured
+
+    @staticmethod
+    async def _get_usd_clp_from_yahoo() -> float:
+        """Obtiene TC USD/CLP desde Yahoo Finance vía yfinance (ticker USDCLP=X).
+
+        No requiere cuenta ni API key.
+        """
+        import asyncio
+        import yfinance as yf
+
+        def _fetch() -> float:
+            ticker = yf.Ticker("USDCLP=X")
+            price = ticker.fast_info.last_price
+            if price is None or price <= 0:
+                raise ValueError("Yahoo Finance retornó precio inválido para USDCLP=X")
+            return float(price)
+
+        return await asyncio.to_thread(_fetch)
 
     @staticmethod
     def _metrics_to_dict(m: FundamentalMetrics) -> dict:

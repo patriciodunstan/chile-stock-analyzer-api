@@ -127,6 +127,7 @@ def get_full_analysis_use_case(
     fin_repo: FinancialRepo,
     stock_repo: StockRepo,
     market: MarketProvider,
+    macro: MacroProvider,
 ) -> FullAnalysisUseCase:
     return FullAnalysisUseCase(
         financial_repository=fin_repo,
@@ -135,6 +136,7 @@ def get_full_analysis_use_case(
         metrics_calculator=MetricsCalculatorService(),
         dcf_service=DCFValuationService(),
         scoring_service=OpportunityScoringService(),
+        macro_provider=macro,
     )
 
 

@@ -38,6 +38,10 @@ class Settings(BaseSettings):
     # Bolsa de Santiago
     bolsa_santiago_base_url: str = "https://www.bolsadesantiago.com/api"
 
+    # Tipo de cambio USD/CLP (fallback si Banco Central API no está disponible)
+    # Configurable via env var USD_CLP_RATE en Railway
+    usd_clp_rate: float = 950.0
+
     # Banco Central
     banco_central_api_url: str = (
         "https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx"
