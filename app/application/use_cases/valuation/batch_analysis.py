@@ -16,6 +16,12 @@ from app.application.use_cases.valuation.full_analysis import (
     FullAnalysisUseCase,
     AnalysisResult,
 )
+from app.infrastructure.persistence.repositories.sqlalchemy_financial_repository import (
+    SQLAlchemyFinancialRepository,
+)
+from app.infrastructure.persistence.repositories.sqlalchemy_stock_repository import (
+    SQLAlchemyStockRepository,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -121,24 +127,38 @@ class BatchAnalysisUseCase:
                 ranking=[], errors=[],
             )
 
-        # Ejecutar análisis en paralelo con semáforo para limitar concurrencia
+        # Ejecutar análisis en paralelo con semáforo para limitar concurrencia.
+        # Cada corrutina crea su PROPIA sesión de DB para evitar el error
+        # asyncpg "cannot perform operation: another operation is in progress"
+        # que ocurre cuando múltiples corrutinas comparten el mismo AsyncSession.
         sem = asyncio.Semaphore(5)
+        fa = self.full_analysis  # alias para acceder a los servicios compartidos
 
         async def analyze_one(
             company: Company,
         ) -> tuple[Company, AnalysisResult | None, str | None]:
+            from app.infrastructure.persistence.database import async_session_factory
             async with sem:
                 try:
-                    result = await asyncio.wait_for(
-                        self.full_analysis.execute(company.ticker),
-                        timeout=8.0,
-                    )
+                    async with async_session_factory() as session:
+                        use_case = FullAnalysisUseCase(
+                            financial_repository=SQLAlchemyFinancialRepository(session),
+                            stock_repository=SQLAlchemyStockRepository(session),
+                            market_provider=fa.market_provider,
+                            metrics_calculator=fa.metrics_calculator,
+                            dcf_service=fa.dcf_service,
+                            scoring_service=fa.scoring_service,
+                        )
+                        result = await asyncio.wait_for(
+                            use_case.execute(company.ticker),
+                            timeout=8.0,
+                        )
                     return (company, result, None)
                 except asyncio.TimeoutError:
-                    logger.warning(f"Timeout analizando {company.ticker}")
+                    logger.warning("Timeout analizando %s", company.ticker)
                     return (company, None, "Timeout obteniendo datos de mercado")
                 except Exception as e:
-                    logger.error(f"Error analizando {company.ticker}: {e}")
+                    logger.error("Error analizando %s: %s", company.ticker, e)
                     return (company, None, str(e))
 
         results: list[tuple[Company, AnalysisResult | None, str | None]] = list(
@@ -192,8 +212,8 @@ class BatchAnalysisUseCase:
         sell_count = sum(1 for r in ranked if r.signal == "SELL")
 
         logger.info(
-            f"Batch analysis completado: {len(ranked)} empresas analizadas, "
-            f"BUY={buy_count}, HOLD={hold_count}, SELL={sell_count}"
+            "Batch analysis completado: %d empresas analizadas, BUY=%d, HOLD=%d, SELL=%d",
+            len(ranked), buy_count, hold_count, sell_count,
         )
 
         return BatchAnalysisResult(
