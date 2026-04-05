@@ -11,8 +11,6 @@ from typing import Any
 from app.dependencies import FullAnalysisUC, BatchAnalysisUC
 from app.domain.entities.company import (
     get_all_active_companies,
-    get_company,
-    COMPANY_REGISTRY,
 )
 
 router = APIRouter(prefix="/analysis", tags=["analysis"])

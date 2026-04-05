@@ -1,5 +1,5 @@
-from __future__ import annotations
 """Excepciones de dominio del sistema de análisis fundamental."""
+from __future__ import annotations
 
 from typing import Any
 

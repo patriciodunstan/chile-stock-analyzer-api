@@ -13,7 +13,6 @@ from __future__ import annotations
 
 import logging
 import re
-from datetime import date
 
 from app.domain.entities.financial import FinancialStatement
 from app.infrastructure.parsers.xlsx_financial_parser import ParsedFinancialData
@@ -383,10 +382,7 @@ def _normalize_period_key(period_key: str, ticker: str) -> str:
         "apr": "Q2", "may": "Q2", "jun": "Q2",
         "jul": "Q3", "aug": "Q3", "sep": "Q3",
         "oct": "Q4", "nov": "Q4", "dec": "Q4",
-        "ene": "Q1", "feb": "Q1", "mar": "Q1",
-        "abr": "Q2", "may": "Q2", "jun": "Q2",
-        "jul": "Q3", "ago": "Q3", "sep": "Q3",
-        "oct": "Q4", "nov": "Q4", "dic": "Q4",
+        "ene": "Q1", "abr": "Q2", "ago": "Q3", "dic": "Q4",
     }
     match = re.match(r'(\w{3})\w*\s*(\d{4})', text, re.IGNORECASE)
     if match:

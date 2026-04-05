@@ -1,5 +1,5 @@
-from __future__ import annotations
 """Entidad Stock — representa una acción del mercado chileno."""
+from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime

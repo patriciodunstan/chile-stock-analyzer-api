@@ -2,14 +2,13 @@
 
 from pathlib import Path
 
-from fastapi import APIRouter, Query, UploadFile, File, Form
+from fastapi import APIRouter, Query, UploadFile, File
 from pydantic import BaseModel
 from typing import Annotated
 
 from app.dependencies import (
     CalculateMetricsUC,
     FinancialRepo,
-    MarketProvider,
     IngestFinancialsUC,
 )
 from app.presentation.schemas.financial import (

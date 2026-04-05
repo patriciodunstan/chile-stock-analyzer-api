@@ -1,4 +1,3 @@
-from __future__ import annotations
 """Proveedor de datos de mercado vía Yahoo Finance (yfinance).
 
 No requiere API key. Acciones chilenas usan sufijo .SN.
@@ -16,7 +15,6 @@ from app.domain.entities.stock import Stock, StockPrice
 from app.domain.exceptions import ExternalAPIError, TickerNotFoundError
 from app.infrastructure.external.yahoo_finance.ticker_map import (
     SANTIAGO_TO_YAHOO,
-    to_santiago_nemo,
     to_yahoo_ticker,
 )
 

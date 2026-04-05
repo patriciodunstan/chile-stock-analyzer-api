@@ -1,4 +1,3 @@
-from __future__ import annotations
 """Proveedor compuesto con fallback en cascada (Strategy Pattern).
 
 Orden de prioridad:
@@ -12,7 +11,6 @@ Loguea qué fuente se usó para cada request.
 """
 
 import logging
-from datetime import datetime
 
 from app.application.interfaces.market_data_provider import MarketDataProvider
 from app.domain.entities.stock import Stock, StockPrice

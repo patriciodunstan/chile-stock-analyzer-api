@@ -1,8 +1,7 @@
-from __future__ import annotations
 """Pydantic v2 schemas para request/response de stocks."""
+from __future__ import annotations
 
-from pydantic import BaseModel, Field, ConfigDict
-from datetime import datetime
+from pydantic import BaseModel, ConfigDict
 
 
 class StockPriceResponse(BaseModel):

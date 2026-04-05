@@ -1,5 +1,5 @@
-from __future__ import annotations
 """Interfaz del repositorio de acciones."""
+from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from app.domain.entities.stock import Stock, StockPrice

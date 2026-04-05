@@ -1,4 +1,3 @@
-from __future__ import annotations
 """Cliente HTTP para la API de la Bolsa de Santiago.
 
 Endpoints documentados:
@@ -73,7 +72,7 @@ class BolsaSantiagoClient(MarketDataProvider):
             )
             self._using_mock = True
             raise ExternalAPIError(
-                message=f"Bolsa de Santiago API unavailable",
+                message="Bolsa de Santiago API unavailable",
                 details={"endpoint": endpoint, "error": str(e)},
             )
 

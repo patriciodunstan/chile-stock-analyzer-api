@@ -1,7 +1,7 @@
-from __future__ import annotations
 """Entidades financieras — estados financieros y métricas."""
+from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date
 from app.domain.entities.base import BaseEntity
 

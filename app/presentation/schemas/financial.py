@@ -1,5 +1,5 @@
 """Schemas Pydantic para endpoints financieros."""
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 class FinancialStatementResponse(BaseModel):

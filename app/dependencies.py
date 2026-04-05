@@ -20,7 +20,6 @@ from app.infrastructure.external.composite_provider import (
 from app.domain.repositories.stock_repository import StockRepository
 from app.domain.repositories.financial_repository import FinancialRepository
 from app.domain.services.metrics_calculator import MetricsCalculatorService
-from app.application.interfaces.market_data_provider import MarketDataProvider
 from app.application.interfaces.macro_data_provider import MacroDataProvider
 from app.application.use_cases.prices.get_stock_price import GetStockPriceUseCase
 from app.application.use_cases.prices.list_stocks import ListStocksUseCase

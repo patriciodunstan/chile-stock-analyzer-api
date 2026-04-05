@@ -63,7 +63,6 @@ class MetricsCalculatorService:
         net_income_ann = statement.net_income * ann
         ebitda_ann = statement.ebitda * ann
         ebit_ann = statement.ebit * ann
-        gross_profit_ann = statement.gross_profit * ann
         interest_expense_ann = statement.interest_expense * ann
         dividends_ann = statement.dividends_paid * ann
 

@@ -9,10 +9,9 @@ Cubre:
 """
 import pytest
 from pathlib import Path
-from unittest.mock import MagicMock
 
 from app.infrastructure.external.ir_reports.base_scraper import (
-    ReportMetadata, ReportType, ReportFormat, ReportPeriod, DownloadResult,
+    ReportMetadata, ReportType, ReportFormat, ReportPeriod,
 )
 from app.infrastructure.external.ir_reports.sqm_scraper import SQMScraper
 from app.infrastructure.external.ir_reports.registry import (
@@ -24,7 +23,6 @@ from app.infrastructure.parsers.xlsx_financial_parser import (
 from app.infrastructure.parsers.pdf_financial_parser import PDFFinancialParser
 from app.infrastructure.parsers.normalizer import (
     normalize_all_periods,
-    normalize_to_financial_statement,
     _normalize_period_key,
     _match_label_to_field,
 )

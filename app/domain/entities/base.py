@@ -1,5 +1,5 @@
-from __future__ import annotations
 """Entidades base del dominio."""
+from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime

@@ -1,8 +1,7 @@
-from __future__ import annotations
 """Implementación SQLAlchemy del repositorio de acciones."""
+from __future__ import annotations
 
 from sqlalchemy import select, desc
-from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.domain.entities.stock import Stock, StockPrice

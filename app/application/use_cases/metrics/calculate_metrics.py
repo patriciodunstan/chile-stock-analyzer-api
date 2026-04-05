@@ -14,7 +14,7 @@ from dataclasses import dataclass
 
 from app.application.dtos.financial_dto import FundamentalMetricsDTO
 from app.application.interfaces.market_data_provider import MarketDataProvider
-from app.domain.exceptions import InsufficientDataError, TickerNotFoundError
+from app.domain.exceptions import InsufficientDataError
 from app.domain.repositories.financial_repository import FinancialRepository
 from app.domain.repositories.stock_repository import StockRepository
 from app.domain.services.metrics_calculator import MetricsCalculatorService

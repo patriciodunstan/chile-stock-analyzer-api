@@ -1,4 +1,3 @@
-from __future__ import annotations
 """Proveedor de datos vía EODHD (End of Day Historical Data).
 
 Tier gratuito: datos end-of-day con 20 llamadas/día sin API key

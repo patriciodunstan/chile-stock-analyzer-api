@@ -1,5 +1,5 @@
-from __future__ import annotations
 """Interfaz del repositorio de datos financieros."""
+from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from app.domain.entities.financial import FinancialStatement, FundamentalMetrics

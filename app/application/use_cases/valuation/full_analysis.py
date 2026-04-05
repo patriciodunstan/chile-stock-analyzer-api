@@ -10,18 +10,15 @@ from dataclasses import dataclass
 from typing import Any
 
 from app.domain.entities.company import (
-    Company,
     get_company,
     get_all_active_companies,
-    EeffCurrency,
 )
-from app.domain.entities.financial import FinancialStatement, FundamentalMetrics
+from app.domain.entities.financial import FundamentalMetrics
 from app.domain.repositories.financial_repository import FinancialRepository
 from app.domain.repositories.stock_repository import StockRepository
 from app.domain.services.dcf_valuation import (
     DCFValuationService,
     DCFResult,
-    DCFParameters,
 )
 from app.domain.services.metrics_calculator import MetricsCalculatorService
 from app.domain.services.opportunity_scoring import (
@@ -126,14 +123,12 @@ class FullAnalysisUseCase:
         try:
             price_data = await self.market_provider.get_price(ticker)
             market_price = price_data.price
-            market_cap = price_data.market_cap
         except Exception as e:
             warnings.append(f"No se pudo obtener precio de mercado: {e}")
             # Intentar desde DB
             price_data = await self.stock_repository.get_latest_price(ticker)
             if price_data:
                 market_price = price_data.price
-                market_cap = price_data.market_cap
 
         # 3. Normalizar moneda (EEFF USD vs market CLP) usando Company Registry
         eeff_currency = company.eeff_currency.value

@@ -1,5 +1,7 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
+
+from pydantic import field_validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -18,6 +20,15 @@ class Settings(BaseSettings):
     database_url: str = "sqlite+aiosqlite:////tmp/chile_stocks.db"
     db_pool_size: int = 5
     db_max_overflow: int = 10
+
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def fix_db_url(cls, v: str) -> str:
+        if v.startswith("postgresql://"):
+            return v.replace("postgresql://", "postgresql+asyncpg://", 1)
+        if v.startswith("postgres://"):
+            return v.replace("postgres://", "postgresql+asyncpg://", 1)
+        return v
 
     # Bolsa de Santiago
     bolsa_santiago_base_url: str = "https://www.bolsadesantiago.com/api"

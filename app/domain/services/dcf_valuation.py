@@ -13,7 +13,6 @@ proxy de FCF operativo (EBITDA * conversion_factor).
 from __future__ import annotations
 
 import logging
-import math
 from dataclasses import dataclass, field
 from typing import Sequence
 
@@ -285,7 +284,7 @@ class DCFValuationService:
 
         if first_rev <= 0 or last_rev <= 0:
             reasons.append(
-                f"Growth rate: revenue negativo en historial, usando default"
+                "Growth rate: revenue negativo en historial, usando default"
             )
             return params.default_growth_rate
 

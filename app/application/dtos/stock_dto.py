@@ -1,8 +1,7 @@
-from __future__ import annotations
 """DTOs para transferencia de datos de acciones."""
+from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 
 
 @dataclass
@@ -23,7 +22,6 @@ class StockPriceDTO:
 
     @classmethod
     def from_entity(cls, entity) -> "StockPriceDTO":
-        from app.domain.entities.stock import StockPrice
 
         return cls(
             ticker=entity.ticker,

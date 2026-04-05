@@ -7,10 +7,8 @@ Endpoint target: GET /api/v1/analysis/batch
 """
 from __future__ import annotations
 
-import asyncio
 import logging
-from dataclasses import dataclass, field
-from typing import Any
+from dataclasses import dataclass
 
 from app.domain.entities.company import get_all_active_companies, Company
 from app.application.use_cases.valuation.full_analysis import (
