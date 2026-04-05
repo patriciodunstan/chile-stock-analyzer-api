@@ -247,3 +247,23 @@ async def get_performance(trade_repo: TradeRepo):
     use_case = PaperTradeUseCase(trade_repository=trade_repo)
     perf = await use_case.get_performance()
     return perf.to_dict()
+
+
+@router.post("/paper/check-prices")
+async def check_prices(trade_repo: TradeRepo):
+    """Obtiene precios reales (yfinance) y auto-ejecuta SL/TP de posiciones abiertas.
+
+    Llama a yfinance para cada ticker con posición abierta y cierra
+    automáticamente los trades que cruzaron stop loss o take profit.
+
+    Respuesta:
+    - executed: trades cerrados en esta llamada (trigger: STOP_LOSS | TAKE_PROFIT)
+    - still_open: trades que siguen abiertos con P&L actual y distancia a SL/TP
+    - prices_fetched: precios obtenidos de yfinance
+    """
+    use_case = PaperTradeUseCase(trade_repository=trade_repo)
+    try:
+        result = await use_case.check_and_execute_prices()
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

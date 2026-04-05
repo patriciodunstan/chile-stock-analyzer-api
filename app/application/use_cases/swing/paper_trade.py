@@ -184,6 +184,90 @@ class PaperTradeUseCase:
             unrealized_pnl_pct=unreal_pct,
         )
 
+    async def check_and_execute_prices(self) -> dict:
+        """Obtiene precios reales de yfinance y auto-cierra trades que cruzaron SL/TP.
+
+        Retorna resumen de acciones tomadas y posiciones que siguen abiertas.
+        """
+        import asyncio
+        import yfinance as yf
+
+        open_trades = await self.trade_repository.get_open_trades(is_paper=True)
+        if not open_trades:
+            return {"executed": [], "still_open": [], "message": "No hay posiciones abiertas"}
+
+        # Fetch precios en paralelo
+        async def _fetch_price(ticker: str) -> tuple[str, float | None]:
+            def _get() -> float | None:
+                try:
+                    info = yf.Ticker(f"{ticker}.SN")
+                    price = info.fast_info.last_price
+                    if price and price > 0:
+                        return float(price)
+                    # fallback sin sufijo
+                    info2 = yf.Ticker(ticker)
+                    price2 = info2.fast_info.last_price
+                    return float(price2) if price2 and price2 > 0 else None
+                except Exception:
+                    return None
+            return ticker, await asyncio.to_thread(_get)
+
+        price_results = await asyncio.gather(
+            *[_fetch_price(t.ticker) for t in open_trades]
+        )
+        current_prices = {ticker: price for ticker, price in price_results if price}
+
+        executed = []
+        still_open = []
+        now = datetime.utcnow()
+
+        for trade in open_trades:
+            price = current_prices.get(trade.ticker)
+            if price is None:
+                still_open.append({**trade.to_dict(), "current_price": None, "note": "precio no disponible"})
+                continue
+
+            pnl_pct = (price - trade.entry_price) / trade.entry_price * 100
+
+            if price <= trade.stop_loss:
+                trade.close(price, now, _COMMISSION_RATE)
+                await self.trade_repository.update(trade)
+                executed.append({
+                    **trade.to_dict(),
+                    "trigger": "STOP_LOSS",
+                    "current_price": price,
+                    "pnl_pct": round(pnl_pct, 2),
+                    "emoji": "🔴",
+                })
+                logger.info("SL ejecutado: %s — %.0f (%.1f%%)", trade.ticker, price, pnl_pct)
+
+            elif price >= trade.take_profit:
+                trade.close(price, now, _COMMISSION_RATE)
+                await self.trade_repository.update(trade)
+                executed.append({
+                    **trade.to_dict(),
+                    "trigger": "TAKE_PROFIT",
+                    "current_price": price,
+                    "pnl_pct": round(pnl_pct, 2),
+                    "emoji": "🟢",
+                })
+                logger.info("TP ejecutado: %s — %.0f (%.1f%%)", trade.ticker, price, pnl_pct)
+
+            else:
+                still_open.append({
+                    **trade.to_dict(),
+                    "current_price": price,
+                    "pnl_pct": round(pnl_pct, 2),
+                    "distance_to_sl_pct": round((price - trade.stop_loss) / price * 100, 2),
+                    "distance_to_tp_pct": round((trade.take_profit - price) / price * 100, 2),
+                })
+
+        return {
+            "executed": executed,
+            "still_open": still_open,
+            "prices_fetched": {k: round(v, 2) for k, v in current_prices.items()},
+        }
+
     async def get_performance(self) -> PerformanceMetrics:
         """Calcula métricas completas de performance sobre todos los trades cerrados."""
         closed = await self.trade_repository.get_closed_trades(is_paper=True, limit=200)
