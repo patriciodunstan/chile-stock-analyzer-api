@@ -23,14 +23,26 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 
+def _asyncio_exception_handler(loop, context: dict) -> None:
+    """Loguea excepciones no capturadas del event loop de asyncio."""
+    exc = context.get("exception")
+    msg = context.get("message", "sin mensaje")
+    if exc:
+        logger.critical("[asyncio] Excepción no capturada: %s — %s", type(exc).__name__, exc, exc_info=exc)
+    else:
+        logger.critical("[asyncio] Error en event loop: %s", msg)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup y shutdown del application lifecycle."""
+    import asyncio
+    asyncio.get_event_loop().set_exception_handler(_asyncio_exception_handler)
+
     db_url = settings.database_url
     db_type = "postgresql" if "postgresql" in db_url else "sqlite"
-    # Ocultar credenciales en el log
     safe_url = db_url.split("@")[-1] if "@" in db_url else db_url
-    logger.info(f"[DB] Conectando a {db_type} | {safe_url}")
+    logger.info("[DB] Conectando a %s | %s", db_type, safe_url)
     await init_db()
     logger.info("[DB] Tablas inicializadas correctamente")
     yield

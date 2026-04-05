@@ -32,4 +32,4 @@ asyncio.run(check_and_seed())
 "
 
 # Start server
-exec uvicorn app.main:app --host 0.0.0.0 --port "$PORT" --workers 1 --log-level info --no-access-log
+exec uvicorn app.main:app --host 0.0.0.0 --port "$PORT" --log-level info --no-access-log
