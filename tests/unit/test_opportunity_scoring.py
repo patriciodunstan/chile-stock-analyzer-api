@@ -20,7 +20,6 @@ from app.domain.services.opportunity_scoring import (
     ScoringResult,
     _get_thresholds,
     _DEFAULT_THRESHOLDS,
-    _SECTOR_THRESHOLDS,
 )
 
 
