@@ -53,4 +53,4 @@ jobs:
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
           RAILWAY_SERVICE: "chile-stock-analyzer-api"
-        run: railway up --detach
+        run: railway up --service chile-stock-analyzer-api --detach
