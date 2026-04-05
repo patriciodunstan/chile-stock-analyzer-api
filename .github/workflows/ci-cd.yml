@@ -52,4 +52,5 @@ jobs:
       - name: Deploy
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_SERVICE: "chile-stock-analyzer-api"
         run: railway up --detach
