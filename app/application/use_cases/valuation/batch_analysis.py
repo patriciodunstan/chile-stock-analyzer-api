@@ -129,8 +129,14 @@ class BatchAnalysisUseCase:
         ) -> tuple[Company, AnalysisResult | None, str | None]:
             async with sem:
                 try:
-                    result = await self.full_analysis.execute(company.ticker)
+                    result = await asyncio.wait_for(
+                        self.full_analysis.execute(company.ticker),
+                        timeout=8.0,
+                    )
                     return (company, result, None)
+                except asyncio.TimeoutError:
+                    logger.warning(f"Timeout analizando {company.ticker}")
+                    return (company, None, "Timeout obteniendo datos de mercado")
                 except Exception as e:
                     logger.error(f"Error analizando {company.ticker}: {e}")
                     return (company, None, str(e))

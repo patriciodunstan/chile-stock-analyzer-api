@@ -4,6 +4,7 @@
 - GET /batch → análisis de todas las empresas + ranking
 - GET /companies → lista de empresas disponibles
 """
+import time as _time
 from fastapi import APIRouter, Query
 from pydantic import BaseModel
 from typing import Any
@@ -12,6 +13,11 @@ from app.dependencies import FullAnalysisUC, BatchAnalysisUC
 from app.domain.entities.company import (
     get_all_active_companies,
 )
+
+# Cache en memoria para el batch (evita recomputar en cada request)
+_BATCH_CACHE_TTL = 300  # 5 minutos
+_batch_cache: dict | None = None
+_batch_cache_ts: float = 0.0
 
 router = APIRouter(prefix="/analysis", tags=["analysis"])
 
@@ -118,8 +124,22 @@ async def batch_analysis(
     use_case: BatchAnalysisUC,
     sector: str | None = Query(None, description="Filtrar por sector"),
 ) -> BatchAnalysisResponse:
+    global _batch_cache, _batch_cache_ts
+
+    # Solo cachear cuando no hay filtro de sector (el caso más frecuente)
+    use_cache = sector is None
+    now = _time.monotonic()
+
+    if use_cache and _batch_cache is not None and (now - _batch_cache_ts) < _BATCH_CACHE_TTL:
+        return BatchAnalysisResponse(**_batch_cache)
+
     result = await use_case.execute(sector=sector)
     data = result.to_dict()
+
+    if use_cache:
+        _batch_cache = data
+        _batch_cache_ts = now
+
     return BatchAnalysisResponse(**data)
 
 
