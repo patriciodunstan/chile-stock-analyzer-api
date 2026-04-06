@@ -267,3 +267,66 @@ async def check_prices(trade_repo: TradeRepo):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/refresh-prices")
+async def refresh_prices(stock_repo: StockRepo):
+    """Actualiza precios del día desde yfinance para los 10 tickers del registry.
+
+    Llamado por el scheduler del bot de Telegram a las 18:30 CLT (lunes-viernes).
+    """
+    import asyncio
+    from datetime import datetime, timezone
+    import yfinance as yf
+    from app.domain.entities.company import COMPANY_REGISTRY
+    from app.domain.entities.stock import StockPrice
+
+    companies = list(COMPANY_REGISTRY.values())
+    ok: list[str] = []
+    failed: list[str] = []
+
+    async def _fetch_and_save(company) -> None:
+        yf_ticker = company.yahoo_ticker or f"{company.ticker}.SN"
+        try:
+            def _get():
+                ticker_obj = yf.Ticker(yf_ticker)
+                hist = ticker_obj.history(period="2d")
+                if hist.empty:
+                    return None
+                row = hist.iloc[-1]
+                return {
+                    "close": float(row["Close"]),
+                    "open": float(row.get("Open") or 0),
+                    "high": float(row.get("High") or 0),
+                    "low": float(row.get("Low") or 0),
+                    "volume": int(row.get("Volume") or 0),
+                }
+
+            data = await asyncio.to_thread(_get)
+            if not data or data["close"] <= 0:
+                failed.append(company.ticker)
+                return
+
+            price = StockPrice(
+                ticker=company.ticker,
+                price=data["close"],
+                open_price=data["open"],
+                high=data["high"],
+                low=data["low"],
+                close_price=data["close"],
+                volume=data["volume"],
+                timestamp=datetime.now(tz=timezone.utc).replace(tzinfo=None),
+            )
+            await stock_repo.save_price(price)
+            ok.append(company.ticker)
+        except Exception:
+            failed.append(company.ticker)
+
+    await asyncio.gather(*[_fetch_and_save(c) for c in companies])
+
+    return {
+        "updated": len(ok),
+        "failed": len(failed),
+        "tickers_ok": ok,
+        "tickers_failed": failed,
+    }
