@@ -26,53 +26,59 @@ from app.infrastructure.persistence.repositories.sqlalchemy_stock_repository imp
 DAYS = 90
 
 
+async def seed_ticker(company) -> int:
+    """Carga precios de un ticker en su propia sesión. Retorna cantidad insertada."""
+    yf_ticker = company.yahoo_ticker or f"{company.ticker}.SN"
+    print(f"  {company.ticker} ({yf_ticker})...", end=" ", flush=True)
+    try:
+        hist = yf.Ticker(yf_ticker).history(period=f"{DAYS}d")
+        if hist.empty:
+            print("sin datos en yfinance")
+            return 0
+
+        async with async_session_factory() as session:
+            repo = SQLAlchemyStockRepository(session)
+            count = 0
+            for ts, row in hist.iterrows():
+                close = float(row["Close"])
+                if close <= 0:
+                    continue
+
+                dt = ts.to_pydatetime()
+                # Convertir a UTC naive — PostgreSQL usa TIMESTAMP WITHOUT TIME ZONE
+                if dt.tzinfo is not None:
+                    dt = dt.astimezone(timezone.utc).replace(tzinfo=None)
+
+                price = StockPrice(
+                    ticker=company.ticker,
+                    price=close,
+                    open_price=float(row.get("Open") or 0),
+                    high=float(row.get("High") or 0),
+                    low=float(row.get("Low") or 0),
+                    close_price=close,
+                    volume=int(row.get("Volume") or 0),
+                    timestamp=dt,
+                )
+                await repo.save_price(price)
+                count += 1
+
+            await session.commit()
+
+        print(f"{count} días cargados")
+        return count
+
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return 0
+
+
 async def seed() -> None:
     await init_db()
     companies = list(COMPANY_REGISTRY.values())
     total = 0
 
-    async with async_session_factory() as session:
-        repo = SQLAlchemyStockRepository(session)
-
-        for company in companies:
-            yf_ticker = company.yahoo_ticker or f"{company.ticker}.SN"
-            print(f"  {company.ticker} ({yf_ticker})...", end=" ", flush=True)
-            try:
-                hist = yf.Ticker(yf_ticker).history(period=f"{DAYS}d")
-                if hist.empty:
-                    print("sin datos en yfinance")
-                    continue
-
-                count = 0
-                for ts, row in hist.iterrows():
-                    close = float(row["Close"])
-                    if close <= 0:
-                        continue
-
-                    dt = ts.to_pydatetime()
-                    if dt.tzinfo is None:
-                        dt = dt.replace(tzinfo=timezone.utc)
-
-                    price = StockPrice(
-                        ticker=company.ticker,
-                        price=close,
-                        open_price=float(row.get("Open") or 0),
-                        high=float(row.get("High") or 0),
-                        low=float(row.get("Low") or 0),
-                        close_price=close,
-                        volume=int(row.get("Volume") or 0),
-                        timestamp=dt,
-                    )
-                    await repo.save_price(price)
-                    count += 1
-
-                total += count
-                print(f"{count} días cargados")
-
-            except Exception as e:
-                print(f"ERROR: {e}")
-
-        await session.commit()
+    for company in companies:
+        total += await seed_ticker(company)
 
     print(f"\n✅ Seed completado: {total} registros insertados para {len(companies)} tickers")
 
